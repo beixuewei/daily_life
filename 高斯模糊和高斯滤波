@@ -1,0 +1,21 @@
+http://blog.csdn.net/keith_bb/article/details/54412493?locationNum=11&fps=1
+高斯模糊和高斯滤波两种说法，其实这两种说法是有一定区别的。
+经过低通滤波器之后整幅图像变成低频造成图像模糊，这就被称为高斯模糊；相反高通滤波是允许高频通过而过滤掉低频，这样将低频像素进行锐化操作，图像变的更加清晰，被称为高斯滤波。说白了很简单就是：高斯滤波是指用高斯函数作为滤波函数的滤波操作而高斯模糊是用高斯低通滤波器。
+高斯滤波在图像处理中常用来对图像进行预处理操作，虽然耗时但是数字图像用于后期应用但是其噪声是最大的问题，噪声会造成很大的误差而误差在不同的处理操作中会累积传递，为了能够得到较好的图像，对图像进行预处理去除噪声也是针对数字图像处理的无奈之举。
+
+二维高斯函数如下：
+ 
+opencv提供了GaussianBlur()函数对图形进行高斯滤波，其原型如下：
+C++: void GaussianBlur(InputArray src, OutputArray dst, Size ksize, double sigmaX, double sigmaY=0, int borderType=BORDER_DEFAULT )
+1
+参数解释： 
+. InputArray src: 输入图像，可以是Mat类型，图像深度为CV_8U、CV_16U、CV_16S、CV_32F、CV_64F。 
+. OutputArray dst: 输出图像，与输入图像有相同的类型和尺寸。 
+. Size ksize: 高斯内核大小，这个尺寸与前面两个滤波kernel尺寸不同，ksize.width和ksize.height可以不相同但是这两个值必须为正奇数，如果这两个值为0，他们的值将由sigma计算。 
+. double sigmaX: 高斯核函数在X方向上的标准偏差 
+. double sigmaY: 高斯核函数在Y方向上的标准偏差，如果sigmaY是0，则函数会自动将sigmaY的值设置为与sigmaX相同的值，如果sigmaX和sigmaY都是0，这两个值将由ksize.width和ksize.height计算而来。具体可以参考getGaussianKernel()函数查看具体细节。建议将size、sigmaX和sigmaY都指定出来。 
+. int borderType=BORDER_DEFAULT: 推断图像外部像素的某种便捷模式，有默认值BORDER_DEFAULT，如果没有特殊需要不用更改，具体可以参考borderInterpolate()函数。
+
+
+https://www.zhihu.com/question/54918332
+高斯模糊的原理是什么，怎样在界面中实现？
