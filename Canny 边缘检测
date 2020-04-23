@@ -1,0 +1,23 @@
+https://www.zhihu.com/question/54854524/answer/142105520
+Canny 边缘检测
+Canny Sobel
+这个算法的详细过程可以在上面的链接中找到，我们这只简单介绍一下过程：
+对图像高斯模糊，减少噪声影响
+用 Sobel 算子对图像求卷积（相当于横纵求导），并求模获得边缘信息。
+取预设范围内的值。
+susceptible：易受影响的
+Smoothened：平滑的
+perpendicular：垂直的
+diagonal：斜的
+
+
+https://docs.opencv.org/3.2.0/da/d22/tutorial_py_canny.html
+Canny Edge Detection
+理论
+1、是一个多阶段算法；
+2、噪声抑制：5x5的高斯滤波器，得到一个平滑的图像
+3、用Sobel kernel分别对图像的横向、纵向求一阶导数
+4、非极大值抑制：有C、A、B三点，假如A是其中的最大点，则取出来用于下一阶段；如果不是，就把A点抑制（归零）。简而言之，得到的是带薄边的二进制图像。
+5、滞后阈值法：区分哪些点是真实的边。用到maxVal和minVal。A高于maxVal，被认为是sure edge像素点，而C与A相连，也被认为是边缘的一部分。B与C一样处于maxVal和minVal之间，但没有雨sure edge相连，所以被丢弃。
+ 
+cv2.Canny()的第1个参数是输入图像，第2、3个参数是minVal和maxVal，第4个参数是梯度的计算公式（默认值是平方相加后开根号）
