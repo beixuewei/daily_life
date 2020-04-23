@@ -1,0 +1,39 @@
+深入浅出自动驾驶（一）-图像识别
+https://segmentfault.com/a/1190000007816435
+python提供了一个包，openCV，我们可以使用这个包来协助开发，在开发过程中还需要进行一些处理，其伪码如下
+1 将整个图像转为灰度图，毕竟不需要那么多丰富的颜色
+2 进行简单的高斯模糊：GaussianBlur，以减少照片噪声和细节
+3 进行边缘发现
+
+深入浅出自动驾驶(二)：卷积神经网络(CNN)
+https://segmentfault.com/a/1190000008160561
+
+
+http://blog.sina.com.cn/s/blog_15432cb7e0102x32j.html
+python-opencv把彩色图变为灰色图和二值图，并保存
+一、python-opencv：把RGB图像转为灰度图，并保存
+import cv2
+img = cv2.imread("1.jpg", cv2.IMREAD_GRAYSCALE)
+cv2.imwrite('2.jpg', img)
+ 二、python-opencv：把RGB图像转为二值图，并保存。
+图像的二值化，是把图像显现出黑和白的效果。
+使用阈值（threshold）函数，将RGB图像转为二值图。
+cv2.threshold(src, x, y, Methods)
+src:指原图像，该原图像为灰度图
+x:指用来对像素值进行分类的阈值
+y:指当像素值高于（有时小于）阈值时应该被赋予的新的像素值
+Methods：指不同的阈值方法，这些方法包括：cv2.THRESH_BINARY、cv2.THRESH_BINARY_INV、
+cv2.THRESH_TRUNC、 cv2.THRESH_TOZERO、 cv2.THRESH_TOZERO_INV。
+代码：
+import cv2
+img = cv2.imread("1.jpg")
+Grayimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+ret, thresh = cv2.threshold(Grayimg, 12, 255,cv2.THRESH_BINARY)
+cv2.imwrite('2.jpg', thresh)
+
+
+我们要用的话，这样写
+import cv2
+img = cv2.imread(“1.jpg”)
+gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite(“1_gray.jpg”)
