@@ -1,0 +1,7 @@
+https://en.wikipedia.org/wiki/ECEF
+地心地固坐标系(ECEF)
+ECEF(Earth-Centered, Earth-Fixed)地球为中心，符合地区，是一个笛卡尔坐标系，也称为“普通地表”系统， X,Y,Z表示坐标位置，（0，0，0）点表示地球质心。
+它的坐标轴International Reference Pole 和 International Reference Meridian为准，国际参考极点和国际参考子午线，遵照地表所确定，（earth-fixed）Z轴指向指向北，但不完全精确地与地球转动轴重合。转动轴有微小“摆动”，称之为“极运动(polar motion)”。
+X轴在球面上与格林威治线和赤道的交点(经纬度都为0的点)相交。这意味着ECEF依照地球一起旋转，点坐标和地表却依然重合。从WGS84基准转换为ECEF，可以作为把veloceities转换到North East Down坐标系的一个中间步骤。
+
+站心坐标系(ENU)
