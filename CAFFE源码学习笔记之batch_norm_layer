@@ -1,0 +1,4 @@
+https://blog.csdn.net/sinat_22336563/article/details/70159386
+CAFFE源码学习笔记之batch_norm_layer
+理解batchNorm层各参数的含义
+为了使每层的输入分布大致都在0均值和单位方差，需要对每层的输入进行归一化。
