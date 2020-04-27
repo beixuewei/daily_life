@@ -1,0 +1,1 @@
+depth取决于filter的个数，输出的depth=filter的个数。默认每个filter的深度与输入的depth相同。
