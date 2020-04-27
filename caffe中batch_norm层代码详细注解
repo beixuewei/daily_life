@@ -1,0 +1,12 @@
+http://lib.csdn.net/article/aiframework/55148
+caffe中batch_norm层代码详细注解
+作者：Mrhiuser
+caffe中batch_norm层代码注解
+一：BN的解释：
+在训练深层神经网络的过程中, 由于输入层的参数在不停的变化, 因此, 导致了当前层的分布在不停的变化, 这就导致了在训练的过程中, 要求 learning rate 要设置的非常小, 另外, 对参数的初始化的要求也很高. 作者把这种现象称为internal convariate shift. Batch Normalization 的提出就是为了解决这个问题的. BN 在每一个 training mini-batch 中对每一个 feature 进行 normalize. 通过这种方法, 使得网络可以使用较大的 learning rate, 而且, BN 具有一定的 regularization 作用.
+（BN在知乎上的一个解释：
+顾名思义，batch normalization嘛，就是“批规范化”咯。Google在ICML文中描述的非常清晰，即在每次SGD时，通过mini-batch来对相应的activation做规范化操作，使得结果（输出信号各个维度）的均值为0，方差为1. 而最后的“scale and shift”操作则是为了让因训练所需而“刻意”加入的BN能够有可能还原最初的输入（即当
+ 
+），从而保证整个network的capacity。（有关capacity的解释：实际上BN可以看作是在原模型上加入的“新操作”，这个新操作很大可能会改变某层原来的输入。当然也可能不改变，不改变的时候就是“还原原来输入”。如此一来，既可以改变同时也可以保持原输入，那么模型的容纳能力（capacity）就提升了。）以上部分的链接：https://www.zhihu.com/question/38102762/answer/85238569
+）
+
