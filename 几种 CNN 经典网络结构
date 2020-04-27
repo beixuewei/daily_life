@@ -1,0 +1,25 @@
+http://blog.csdn.net/u012905422/article/details/53312302
+几种 CNN 经典网络结构：LeNet /AlexNet /VGG-Net /GoogLeNet /ResNet
+1	LeNet：
+广为流传LeNet诞生于1998年，网络结构比较完整，包括卷积层、pooling层、全连接层，这些都是现代CNN网络的基本组件。被认为是CNN的开端。
+ 
+
+2	AlexNet：
+2012年Geoffrey和他学生Alex在ImageNet的竞赛中，刷新了image classification的记录，一举奠定了deep learning 在计算机视觉中的地位。这次竞赛中Alex所用的结构就被称为作为AlexNet。
+对比LeNet，AlexNet加入了 （1）非线性激活函数：ReLU；（2）防止过拟合的方法：Dropout，Data augmentation。同时，使用多个GPU，LRN归一化层。其主要的优势有：网络扩大（5个卷积层+3个全连接层+1个softmax层）；解决过拟合问题（dropout，data augmentation，LRN）；多GPU加速计算。
+ 
+
+3	VGG-Net：
+VGG-Net来自 Andrew Zisserman 教授的组 (Oxford)，在2014年的 ILSVRC localization and classification 两个问题上分别取得了第一名和第二名，其不同于AlexNet的地方是：VGG-Net使用更多的层，通常有16－19层，而AlexNet只有8层。同时，VGG-Net的所有 convolutional layer 使用同样大小的 convolutional filter，大小为 3 x 3。
+  
+
+4	GoogLeNet：
+提出的Inception结构是主要的创新点，这是（Network In Network）的结构，即原来的结点也是一个网络。其使用使得之后整个网络结构的宽度和深度都可扩大，能够带来2-3倍的性能提升。网络结构如下：真的是得深者，得天下哈哈。
+ 
+
+
+5	ResNet：
+ResNet提出了一种减轻网络训练负担的残差学习框架，这种网络比以前使用过的网络本质上层次更深。其明确地将这层作为输入层相关的学习残差函数，而不是学习未知的函数。在ImageNet数据集用152 层（据说层数已经超过1000==）——比VGG网络深8倍的深度来评估残差网络，但它仍具有较低的复杂度。在2015年大规模视觉识别挑战赛分类任务中赢得了第一。网络结构如下：
+
+ 
+
