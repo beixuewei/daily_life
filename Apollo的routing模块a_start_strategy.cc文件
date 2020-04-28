@@ -1,0 +1,18 @@
+https://blog.csdn.net/a15082671703/article/details/80048658
+Apollo的routing模块a_start_strategy.cc文件
+1	数据结构及函数介绍
+struct SearchNode：定义SearchNode的结构以及比较方式。利用f的最大值作为比较基础。
+GetCostToNeighbor: 获取边界间的距离
+GetLargestNode：获取首尾最大距离的TopoNode节点
+AdjustLaneChangeBackward: 评判由前往后时考虑左右转，如果需要转弯，选择最大的可行并且不属于i-1节点车道，最后返回是否可行。
+AdjustLaneChangeForward: 评判由后往前考虑左右转，如果需要转弯，选择最大的可行并且不属于i+1节点车道，最后返回是否可行。
+AdjustLaneChange：评判是否可以转换车道的函数，包含上面两个
+Reconstruct：判断是否可以转换车道，包含AdjustLaneChange，如果可以就转换，不行就返回False。
+AStarStrategy类相关函数：
+构造函数：判断能否变换车道
+Clear：清除所有参数
+HeuristicCost：启发式Cost，这里用的是曼哈顿距离。heuristic	英[hjuˈrɪstɪk]
+美[hjʊˈrɪstɪk]，adj.	启发式的; 探试的，探索的;
+Search：主要函数，路径搜索
+GetResidualS：计算到end集到剩余距离。BFS的思路来直接利用node节点具有的特征s计算。
+GetResidualS-重载：计算到指定点的剩余距离。
