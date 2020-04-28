@@ -1,0 +1,3 @@
+Apollo读取文件，用OpenDriver格式的话，实际上是打开一个xml文件，用的库函数是tinyxml2::XMLDocument的loadFile函数来加载文件，然后用自己写的各个xml_parse函数来解析各个要素。
+
+另一种是用common/util/file.h中的GetProtoFromFile函数，它里面又调用了GetProtoFromBinaryFile和GetProtoFromASCIIFile函数。
