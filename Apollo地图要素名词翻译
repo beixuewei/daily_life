@@ -1,0 +1,12 @@
+车道	Lane
+路口	Junction
+红绿灯	Signal
+人行横道	Crosswalk
+停止线	StopSign
+让路标志	YieldSign
+禁止停车区域	ClearArea
+限速带	SpeedBump
+重叠块	Overlap
+道路	Road
+虚拟车道线	包含在Lane中
+车道中心线	包含在Lane中
