@@ -1,0 +1,12 @@
+NDS与OpenDrive、Shapefile、KIWI对比
+	NDS	OpenDrive	Shapefile	KIWI
+最早发布时间	2008年	2006年	上世纪90年代	2001年
+截至2018年底最新版本	2.5.3和2.4.6	1.4	\	3.0
+制定与维护	NDS协会	VIRES公司	ESRI公司	KIWI-W Consortium
+文件格式	.db 数据库	.xml 表格	.shp .shx .dbf 等 	ALLDATA.KWI等
+是否存储道路拓扑信息	是	是	否	是
+兼容性和互操作性	优	良	差	良
+是否支持实时增量更新	支持	不支持	不支持	支持，但有局限性
+性能	优	良	良	优
+数据安全性	优	差	差	差
+应用范例	欧美主车厂	百度Apollo     日系主车厂
