@@ -1,0 +1,3 @@
+point: trafficlight交通灯、stopsign停止标志、trafficsign交通标志
+line：centerlane车道中心线、lane车道线、overpass高起建筑、road道路、stopline停止线、virtuallane虚拟车道线
+plane：crosswalk人行横道、intersection路口、parkingarea停车场、parkingspot停车位、roadsign道路标志
