@@ -1,0 +1,94 @@
+https://www.cnblogs.com/saneri/p/10162629.html
+
+1.rosbag
+rosbag record
+rosbag record /topic 录制topic的发布消息
+rosbag record -O self_name.bag 自定义录包名
+rosbag record -l 100 /topic 录100个topic消息
+rosbag record --duration=30 录30秒
+rosbag record --split --size=100 /topic 空间达到100M后分文件保存
+rosbag record --split --duration=10 /topic 持续时间到10秒后分文件保存
+rosbag record -a 记录所有主题的发布消息
+
+rosbag info 查看报的内容
+
+rosbag play
+rosbag play xxx.bag 回放
+rosbag play --clock xxx.bag 回放时带时钟
+rosbag play -r 10 xxx.bag 10倍速回放
+rosbag play -d 5 xxx.bag 等待5秒后回放 
+rosbag play -u 100 xxx.bag 只回放100秒
+rosbag play -l 循环回放
+
+roscd 切换到setup.bash文件所在目录
+roscd packget 切换到packget目录
+roscd packget/dir 切换到packget目录下的dir目录
+
+rosclean
+rosclean check 查看日志消耗的硬盘空间
+rosclean purge 删除所有已有日志
+
+roscore 启动master节点
+
+rosdep
+rosdep install packget 安装packget及其依赖包
+
+rosmsg
+rosmsg show std_msgs/String 显示std_msgs报中String消息的数据结构
+rosmsg show String 不知道String属于哪个包时使用
+
+rosmsg list 显示所有消息
+
+rosmsg info 同rosmsg show
+
+rosmsg packget std_msgs 显示包std_msgs中的所有消息
+rosmsg packgets 显示所有包
+
+rosnode
+rosnode ping /node  ping一个节点node
+rosnode ping -all   ping所有节点
+rosnode ping -c 10 /node  ping一个节点4次
+
+rosnode list
+rosnode list 显示正在运行的节点名
+rosnode list -a 显示正在运行的节点名及其XML-RPC URIs
+rosnode list -u 显示正在运行节点的XML-RPC URIs
+
+rosnode info /node 显示节点的发布和订阅话题
+
+rosnode machine xxx 显示xxx机器上运行的所有节点
+
+rosnode kill 
+rosnode kill /xxx  杀死xxx节点
+rosnode kill -a 杀死所有节点
+rosnode kill  --all 同上
+
+rosnode clean 清理所有无法连接的节点
+
+rospack
+rospack depends1 packget 显示packget的直接依赖包
+rospack depends packget 显示packget的所有依赖包，含直接和间接
+rospack depends-indent packget 显示packget的所有依赖包机器依赖关系树
+rospack depends-manifests packget 显示packget的所有依赖包的列表
+rospack depends-on1 packget 显示直接依赖于packget的包
+rospack depends-on packget 显示所有依赖于packget的包，与rospack depends相反
+
+rospack find packget 显示packget的绝对路径
+
+pospack list 
+pospack list 显示所有packget的名称及其绝对路径
+pospack list | grep abc 显示packget绝对路径中包含abc关键字的packget名及其绝对路径
+
+rosparam
+rosparam set param_xx 10 设置参数param_xx的值为10
+
+rosparam get 显示所有参数的名称和值
+rospaam get param_xx 获取参数param_xx的值
+
+rosparam load xxx.yaml 从xxx.yaml文件加载参数
+
+
+
+
+
+
