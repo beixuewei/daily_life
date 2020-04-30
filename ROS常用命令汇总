@@ -10,7 +10,8 @@ rosbag record --split --size=100 /topic 空间达到100M后分文件保存
 rosbag record --split --duration=10 /topic 持续时间到10秒后分文件保存
 rosbag record -a 记录所有主题的发布消息
 
-rosbag info 查看报的内容
+rosbag info
+rosbag info xxx.bag 查看xxx.bag包的内容
 
 rosbag play
 rosbag play xxx.bag 回放
@@ -20,7 +21,7 @@ rosbag play -d 5 xxx.bag 等待5秒后回放
 rosbag play -u 100 xxx.bag 只回放100秒
 rosbag play -l 循环回放
 
-roscd 切换到setup.bash文件所在目录
+roscd 切换到setup.bash文件所在目录（.bashrc中的默认source路径）
 roscd packget 切换到packget目录
 roscd packget/dir 切换到packget目录下的dir目录
 
@@ -85,7 +86,72 @@ rosparam set param_xx 10 设置参数param_xx的值为10
 rosparam get 显示所有参数的名称和值
 rospaam get param_xx 获取参数param_xx的值
 
+rosparam load
 rosparam load xxx.yaml 从xxx.yaml文件加载参数
+
+rosparam dump xxx.yaml 将所有参数的名称和值dump到xxx.yaml文件中
+
+rosparam delete
+rosparam delete xxx_param 删除xxx_param参数
+
+rosparam list 显示所有所有参数的名称
+
+rosrun xx_packget xx.py 运行xx_packget中的xx.py文件
+
+rosservice 
+rosservice args /xx_service 显示xx_service的请求参数（输入参数）
+
+roservice call /xx_service 12 34 请求xx_service服务，参数为12、34
+
+rosservice find xx_type/xx_service 请求服务类型为xx_type/xx_service的所有服务
+
+rosservice info /xx_service 显示服务xx_service的各项信息
+
+rosservice list 显示当前所有服务
+rosservice list -n 显示当前所有服务及提供该服务的节点
+rosservice list /xx_namespace 显示xx_name_space命名空间下的所有服务
+
+rosservice type /xx_Service 显示xx_service的服务类型
+rosservice uri /xx_Service 显示xx_service的uri
+
+rostopic
+rostopic bw /xx_topic 显示xx_topic使用的带宽
+rostopic delay /xx_topic 显示xx_topic的延迟
+rostopic echo
+rostopic echo /xx_topic 持续显示xx_topic当前发布的消息
+rostopic echo -c /xx_topic 持续显示xx_topic当前发布的消息，但每次只显示一条
+rostopic echo -b xxx.bag /xx_topic 显示xxx.bag中topic为xx_topic的消息
+rostopic echo -p /xx_topic 以绘图方式持续显示xx_topic正在发布的消息
+
+rostopic find
+rostopic find std_msgs/String 显示消息类型为std_msgs/String的topic
+rostopic hz /xx_topic 显示xx_topic发布的频率
+
+rostopic info /xx_topic 显示xx_topic的消息类型、发布/订阅信息
+
+rostopic list
+rostopic list 显示当前topic列表
+rostopic list -v 显示当前topic列表，分别显示发布、订阅及其数量
+rostopic list -p 显示当前发布的topic列表
+rostopic list -s 显示当前订阅的topic列表
+rostopic list -b xxx.bag 显示xxx.bag中的topic列表
+
+rostopic pub
+rostopic pub /topic std_msgs/String "test" 向topic发布一条消息，消息类型为std_msgs/String，内容为“test”
+rostopic pub -r 10 /topic std_msgs/String "test" 以10次/秒的频率向topic发布一条消息，消息类型为std_msgs/String，内容为“test”
+
+rostopic type
+rostopic type /topic 显示topic的消息类型
+
+remap
+rostopic remap 重映射topic名称
+rostopic pub -r 2 /test std_msgs/String "remap test" /test:=/test_remap
+运行 rostopic echo /test 无消息
+运行 rostopic echo /test_remap 可以收到消息“remap test”
+
+roslaunch remap
+<remap from="/talker" to="/re_talker" />
+
 
 
 
