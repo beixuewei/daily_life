@@ -1,0 +1,12 @@
+There are two kinds of lidar localization: pure lidar, and lidar fused with RTK
+The disadvantages:
+1) lidar map will be invalid when the environment change, such as change of season, windy day;
+2) Do not support high speed case;
+3) pure lidar localization is inexact in case of which feature point is few and scattered;
+4) dynamic environment will affect its acurrency.
+
+how to solve:
+1) there are no solution yet;
+2) eliminate rotation of point cloud;
+3) optimize lidar map
+4) filter dynamic obstacle
