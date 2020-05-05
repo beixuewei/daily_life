@@ -1,0 +1,3 @@
+1）preload all： 300G
+2）preload city： 400M
+3）dynamic load according to location of vehicle and diving path (recommanded)
