@@ -1,0 +1,96 @@
+Navigation Data Standard,顾名思义，它是定义面向自动驾驶级别导航数据库的标准格式，由汽车制造商、地图数据供应商和导航服务提供商组成的组织共同制定完成。
+NDS描述的是导航电子地图的存储格式（Physical Storage Format）
+NDS标准由NDS协会负责维护、修订和更新
+NDS协会成立于2008年，注册地为德国，目标是开发一种安全、可靠、易用、便于更新的导航电子地图存储标准。主要成员：BMW、奔驰、VOLVO、大众、Here、TomTom、高德、百度、四维图新、宽凳等
+
+兼容性和互操作性
+不同导航系统间数据兼容，即地图数据能够在不同导航系统之间直接进行交换。
+可变性-实时更新功能
+支持异构设备同时更新；增量更新
+地图和导航应用分开
+应用和数据相分离，可以带来操作的灵活性
+性能
+基于内嵌数据库引擎，可快速、高可靠地CRUD地图数据，满足实时性
+易于扩展
+数据安全
+
+NDS使用SQLite数据库文件格式，需要SQLite 3.7.4及以上版本支持
+SQLite：一个免费的内嵌SQL数据库引擎，可读写满足NDS格式的数据
+
+一个NDS DB由多个Product DBs组成，每个Product DB又可进一步分成多个Update Regions
+一个Product DB由独立的数据库提供商提供，具有自己的版本控制，可分别独立更新
+Product DB的内部结构由Building blocks、Levels和Content构成
+Update region用来进行增量和局部更新地图区域，update regions的划分是由地图需求决定的
+
+Levels：某些building blocks的内部组织结构
+从Low level 到High level是一个泛化过程，Level越高，数据抽象层次越高，所含细节信息越少；
+Level越低，所含细节信息越多。High level和Low level数据相互补充，提升地图数据操作速度。
+例如: 地图显示过程，Higher level允许快速显示完整信息而不用考虑细节信息；
+又如：路径规划只需要关注Road level信息。
+元数据，每个产品数据库的细节数据
+Level又可进一步被划分为多个tiles，
+构成地球表面的网格数据组织结构
+
+Content：由Features、Attributes和Metadata组成，构成了地图数据的基本元素。
+<Features, Attributes>:<Field, Slots>
+
+DataScript是NDS用来模型二进制数据类型、bit流和文件格式的形式化语言。优点：可解决语义模糊性，自动类型检查。
+DataScript包含两个组成部分：
+一个是基于约束的规范语言，使用DataScript types来描述数据的物理布局；
+一个是语言绑定，提供对脚本二进制数据的简单编程接口
+
+NDS协会于2008年9月在德国注册成立，其愿景是提供一个领先的全世界通用的自动驾驶地图标准。
+NDS成员由主车厂、应用开发商、编译工具开发商、地图与服务供应商组成。
+NDS协会提供多样的工具供NDS协会成员用于研发和验证地图：
+NDS SQLite 参考引擎
+关联性数据语言（RDS工具）：针对Java语言和C++语言的数据库访问类的代码生成器
+认证工作台：通过具体的测试和证书来验证NDS数据库的兼容性
+调查研究模块：在目标硬件上执行测试NDS数据库的框架
+
+NDS协会有如下组织机构：
+董事会：NDS协会对外合法代表机构。
+联合会（GA）：代表所有NDS协会成员的论坛。联合会负责监督所有NDS协会组织机构的工作，批准预算计划和各成员年度会费的工作。
+指导委员会（SC）：负责所有管理事务。（四维图新担任过SC主席）
+技术委员会（TC）：负责技术性事务。
+NDS工作组（WG）：处理专门的技术主题，例如地图格式发展，自动驾驶和云导航。
+验证和颁布证书董事会：协调验证工具的发展和处理认证事宜
+
+当前现状
+目前仅有少数几家公司开发出了基于NDS的相关产品，比如Elektrobit、Mapscape、Navinfo、TechniSat、Daimler、TomTom和Here等
+
+四维图新
+已成功开发NDS地图产品和编译工具，是全球唯一一家能同时提供NDS标准格式编译技术、高品质NDS导航地图和基于NDS的增量更新技术的公司（收购了MapScape）
+自有工具平台dHive，可基于标准ETL过程（提取，转换，装载）对数据进行测试和验证
+已经取代高德成为宝马新上市车型的NDS导航地图产品供应商
+是NDS协会成员、国内自动驾驶地图工作组发起单位之一，是制定自动驾驶地图标准体系的重要参与者
+
+宽凳科技
+由前百度外卖董事长刘骏于2017年5月12日创立，目前已完成A轮数亿元人民币融资，公司专注于众包高精地图
+宽凳的地图技术解决方案是纯视觉，直接用图像测量，将二维的图像建成三维的模型
+2018年7月宣布启动“百城百万计划”，计划未来一年内完成100个城市和100万公里道路的地图绘制
+
+高德
+通过与TomTom合作掌握了NDS技术。2015年10月，首次完成了高精地图NDS格式的编译
+其车机版地图采用类NDS数据格式的智能引擎，数据更丰富、更新速度更快，体积更小巧。
+主打高端车型，与四维图新合计占汽车导航市场超90%的份额。
+百度
+暂时未看到发布的NDS相关产品，其智能汽车事业部在开发NDS编译和编译平台工具
+
+中海庭
+2016年9月，由中海达与武汉光庭公司合资成立，前者的主营业务是高精度卫星导航定位系统（GNSS）的软硬件产品，后者的主营业务之前是汽车车载导航业务，现已把重心转移到高精度地图。
+2017年9月，上汽创新发展基金投资中海庭1.46亿元，持有51%股权
+已开始高精度地图的数据采集工作，不过目前积累与百度、高德、四维相比，还有一定差距
+
+https://www.nds-association.org/
+https://en.wikipedia.org/wiki/Navigation_Data_Standard
+https://www.sqlite.org/about.html
+https://www.sqlite.org/fileformat.html
+http://www.runoob.com/sqlite/sqlite-c-cpp.html
+http://datascript.sourceforge.net/
+https://en.wikipedia.org/wiki/Map_database_management
+https://en.wikipedia.org/wiki/OpenDRIVE_(specification)
+http://www.opendrive.org/
+http://www.opendrive.org/docs/OpenDRIVEFormatSpecRev1.4H.pdf
+http://people.cs.vt.edu/~gback/papers/gback-datascript-gpce2002.pdf
+https://sourceforge.net/projects/datascript/
+https://sourceforge.net/projects/datascript.berlios/
