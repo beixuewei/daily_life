@@ -1,0 +1,5 @@
+5w张图片，对ImageNet的准确率损失最多5%，
+1、s8比f16，算力高一倍，s8：16*32*16，f16:16*16*16
+2、减小bound
+数据是channel-share，scale可以是channel-share或channel-wise
+半带offset（数据）是为了提高精度，比不带offset多一步
