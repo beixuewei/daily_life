@@ -1,0 +1,12 @@
+GDALOpen是用于打开栅格地图的，里面调用GDALOpenEx时用的参数是GDAL_OF_RASTER
+gdal-release-2.0编译出来是libgdal.so.20.0.3
+gdal-release-2.1编译出来是libgdal.so.20.1.4
+
+
+Minimum bounding rectangle (MBR) 最小外包矩形
+在已知物体的边界时，用其外接矩形的尺寸来刻画它的基本形状是最简单的方法。如果仅计算其在坐标系方向上的外接矩形是最简单的，只需计算物体边界点的最大和最小坐标值，就可得到物体的水平和垂直跨度。但通常需要计算反映物体形状特征的主轴方向上的长度和与之垂直方向上的宽度，这样的外接矩形是物体最小的外接矩形（MER-Minimum Enclosing Rectangle）。
+
+GDAL的Polygon计算一个mbr时，取x、y轴方向上最大最小值即可
+
+只删掉shp文件后，读取dbf可以获取ID，但是多边形的顶点无法获取；恢复shp文件后，读取dbf可以获取到顶点信息；只删掉dbf文件后，读取shp文件可以获取顶点信息，但是无法获取ID
+结论：shp保存了顶点坐标信息，dbf保存了属性信息。
