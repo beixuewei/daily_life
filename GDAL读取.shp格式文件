@@ -10,3 +10,5 @@ GDAL的Polygon计算一个mbr时，取x、y轴方向上最大最小值即可
 
 只删掉shp文件后，读取dbf可以获取ID，但是多边形的顶点无法获取；恢复shp文件后，读取dbf可以获取到顶点信息；只删掉dbf文件后，读取shp文件可以获取顶点信息，但是无法获取ID
 结论：shp保存了顶点坐标信息，dbf保存了属性信息。
+
+OGRLayer::GetNextFeature（）获取的feature必须在layer销毁之前删除，调用的删除函数是OGRFeature::DestroyFeature()
