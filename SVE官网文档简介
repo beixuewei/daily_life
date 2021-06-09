@@ -1,0 +1,23 @@
+A sneak peek into SVE and VLA programming 这个是简要介绍
+
+Arm  Compiler Scalable Vector Extension User Guide 使用介绍
+
+Arm Architecture Reference Manual 指令集说明
+
+ARM Architecture Reference Manual Supplement 指令集补充说明
+
+Arm C Language Extensions for SVE 详细指令集说明
+
+Arm C、C++ Compiler reference guide Documentation 类似上面的使用介绍
+
+Arm Scalable Vector Extensions and application to Machine Learning 在机器学习上的应用
+
+DDI0584A_f_SVE.zip 关于指令内部实现的伪代码说明，非常详细
+
+DWARF for the ARM 64-bit Architecture (AArch64) with SVE support
+
+Getting started with Arm C、C++ Compiler
+
+Porting and Optimizing HPC Applications for Arm SVE
+
+Procedure Call Standard for the Arm 64-bit Architecture (AArch64) with SVE support
