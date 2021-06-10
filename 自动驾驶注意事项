@@ -1,0 +1,17 @@
+激光雷达发出的激光不能用人眼直视，可能会损伤视力
+
+车载硬件：逆变器——输入交流电压，输出直流电压；分压器——将逆变器输出的直流电压，转成更低的直流电压，给其它设备供电；NAS——网络存储器，记录行车过程中的数据
+传感器：摄像头（车前，360°环视=鱼眼*6）、激光雷达（车顶：高线*1，Velodyne 32/40线，车四周：低线*6，IBEO）、毫米波雷达（车四周）*6、超声波雷达（车后方）
+
+PXE（Preboot eXecution Environment）：一种引导方式，使计算机可以通过网络启动。client将放置在远端的文件通过网络下载到本地运行，需要设置DHCP和TFTP服务器。
+部署方式：https://blog.csdn.net/hello_xiaozhuang/article/details/80864249
+
+注意设备检查清单，出车前后均要检查
+
+ROS有标准的车辆消息，其中车身底盘消息为vehicle_info，可行驶区域为freespace
+ROS的可视化组件为rviz
+
+GPS完成初始化后在空旷区域静止，/gnss_0消息的position_type应为50，sd_position中各项数值应为0.1以下
+
+禾多科技：http://www.holomatic.com/
+可提供线控改造（通过CAN网控制 油门、方向盘、刹车）、网关
