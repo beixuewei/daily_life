@@ -1,0 +1,6 @@
+混合精度训练相关资料：
+1、混合训练相关参数配置
+https://docs.nvidia.com/deeplearning/dgx/caffe-user-guide/index.html
+
+2、Training With Mixed Precision (User-Guide)-----包括各个在框架下如何训练
+https://docs.nvidia.com/deeplearning/sdk/pdf/Training-Mixed-Precision-User-Guide.pdf
